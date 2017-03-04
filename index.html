@@ -61,6 +61,18 @@
         option['series'][1]['stack'] = 'population';
         var myChart2 = echarts.init(document.getElementById('main2'));
         myChart2.setOption(option);
+        
+         $(function() {
+            // Argument 1: URL to the external JSON file
+            // Argument 2: The placeholder variable of the data loaded from external JSON file
+            $.getJSON('option.json', function(data) {
+                // When entering this part, variable "data" holds the Javascript object 
+                // corresponding to the external JSON file
+                var option = data;
+                var myChart1 = echarts.init(document.getElementById('main1'));
+                myChart1.setOption(option);
+            })
+        });
     </script>
 </body>
 </html>
